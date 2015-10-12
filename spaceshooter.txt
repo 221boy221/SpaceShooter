@@ -1,0 +1,36 @@
+- PlayerController
+	- Camera Mouse track
+	- Movement
+	- Rotation
+	- Cursor lock
+	- Acceleration
+	
+- Shooting
+	- Bullets
+		- Movement
+		- On hit
+		- Particles
+	- Reload
+	- Ammo
+	- Audio
+	
+- Enemies
+	- Spawn system
+	- Movement
+	- Health
+	- Bounce
+	- Split / multiply
+	- Collision
+	- Explosion
+	
+- Game Manager	
+	- Wave system
+	
+- PlayerData
+	- PlayerScore
+	
+- UI
+	- Main Menu
+	- Pause
+	- Game Over
+	- Restart
