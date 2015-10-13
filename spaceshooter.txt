@@ -1,6 +1,11 @@
 - PlayerController
 	- Camera Mouse track
 	- Movement
+		- Up/Down
+		- Forward/Backward
+		- Right/Left
+		- Speed-up
+		- Brake
 	- Rotation
 	- Cursor lock
 	- Acceleration

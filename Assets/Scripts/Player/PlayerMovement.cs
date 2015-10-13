@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Boy Voesten
+
 public class PlayerMovement : MonoBehaviour
 {
-    float _mouseSensitivity = 5.0f;
+    float _mouseSensitivity;
     float _verticleMouseRange = 60.0f;
     float _maxSpeed = 10.0f;
     [SerializeField] float _movementSpeed = 100.0f;
@@ -15,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _mouseSensitivity = GameObject.FindGameObjectWithTag(TagList.Settings).GetComponent<Settings>().mouseSensitivity;
     }
 
     // Update is called once per frame
@@ -26,9 +29,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Rotation()
     {
-        float horizontalRot = Input.GetAxisRaw("Mouse X") * _mouseSensitivity;
-
+        Debug.Log("Rot");
+        float horizontalRot = 0;
         float verticleRot = 0;
+        Debug.Log(horizontalRot);
+        Debug.Log(verticleRot);
+        horizontalRot = Input.GetAxisRaw("Mouse X") * _mouseSensitivity;
         verticleRot -= Input.GetAxisRaw("Mouse Y") * (_mouseSensitivity / 2);
 
         transform.Rotate(verticleRot, horizontalRot, 0);
@@ -37,11 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Movement()
     {
-        /*
-        if (_rigidbody.velocity.magnitude > _maxSpeed){
-            _rigidbody.velocity = _rigidbody.velocity.normalized * _maxSpeed;
-        }*/
-        Debug.Log("Velocity: " + _rigidbody.velocity);
+        //Debug.Log("Velocity: " + _rigidbody.velocity);
         _rigidbody.AddForce(Input.GetAxis("Vertical") * transform.forward * Time.deltaTime * _movementSpeed);
         _rigidbody.AddForce(Input.GetAxis("Horizontal") * transform.right * Time.deltaTime * _movementSpeed);
         _rigidbody.AddTorque(transform.forward * Input.GetAxis("Rotation") * Time.deltaTime * _rotationSpeed);

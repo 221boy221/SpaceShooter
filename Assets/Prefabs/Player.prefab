@@ -163,8 +163,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142766}
-  m_LocalRotation: {x: .130526006, y: 0, z: 0, w: .991444886}
-  m_LocalPosition: {x: 0, y: 1.52999997, z: -3}
+  m_LocalRotation: {x: .090287745, y: 0, z: 0, w: .995915711}
+  m_LocalPosition: {x: 0, y: .939999998, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 466774}
@@ -269,7 +269,7 @@ MeshCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175988}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Convex: 1
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 500
-  _rotationSpeed: 100
+  _rotationSpeed: 50
 --- !u!124 &12425860
 Behaviour:
   m_ObjectHideFlags: 1
@@ -2522,7 +2522,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: _rotationSpeed
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175988}
