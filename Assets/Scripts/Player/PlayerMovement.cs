@@ -5,7 +5,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float _mouseSensitivity = 2.0f;
+    float _mouseSensitivity;
     float _movementSpeed = 300.0f;
     float _rotationSpeed = 10.0f;
     Vector2 _velocity = new Vector2(0,0);
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _mouseSensitivity = GameObject.FindGameObjectWithTag(TagList.Settings).GetComponent<Settings>().mouseSensitivity;
+        _mouseSensitivity = GameObject.FindGameObjectWithTag(TagList.Settings).GetComponent<Settings>().mouseSens;
     }
 
     // Update is called once per frame

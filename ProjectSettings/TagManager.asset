@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Settings
+  - MouseSlider
+  - AudioSlider
   layers:
   - Default
   - TransparentFX
