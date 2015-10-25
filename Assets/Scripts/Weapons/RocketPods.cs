@@ -10,6 +10,7 @@ public class RocketPods : Weapon {
         damage      =   100.0f;
         cooldown    =   0.5f;
         reloadTime  =   5.0f;
+        bulletSpeed =   10.0f;
 
         ammoInClip  = ammoClipMax;
         ammoLeft    = ammoMax;

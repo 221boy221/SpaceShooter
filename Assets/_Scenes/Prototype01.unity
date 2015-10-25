@@ -175,14 +175,14 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &251934758
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 251934757}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -304,6 +304,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 679952382}
   m_RootOrder: 1
+--- !u!1001 &374070262
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 441386, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441386, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 441386, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441386, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: .707104981
+      objectReference: {fileID: 0}
+    - target: {fileID: 441386, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441386, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441386, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .707108617
+      objectReference: {fileID: 0}
+    - target: {fileID: 441386, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &499074638
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,14 +363,14 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &499074639
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 499074638}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -512,22 +554,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4832fcd677cdad2489ad78bbde5f3d42, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1447239946 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 157448, guid: 4832fcd677cdad2489ad78bbde5f3d42, type: 2}
-  m_PrefabInternal: {fileID: 1344111420}
---- !u!114 &1447239947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1447239946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac92290ad55695438dabbb90c18b8d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammunition: {fileID: 137088, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
 --- !u!1 &1504787884
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,14 +644,14 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1577686025
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1577686024}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
@@ -691,14 +717,14 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1922034345
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1922034344}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:

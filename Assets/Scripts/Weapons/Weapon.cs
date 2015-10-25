@@ -3,7 +3,7 @@ using System.Collections;
 
 // Boy Voesten
 
-// Weapon Base class
+// Weapon base class
 public class Weapon : MonoBehaviour {
     
     [SerializeField]
@@ -16,11 +16,12 @@ public class Weapon : MonoBehaviour {
     protected float damage;
     protected float cooldown;
     protected float reloadTime;
+    protected float bulletSpeed;
     
     private float _nextFireTime;
     private bool _reloading;
     
-	// Update is called once per frame
+
 	void Update () {
         Inputs();
 	}
@@ -69,6 +70,9 @@ public class Weapon : MonoBehaviour {
         Debug.Log("Shoot");
         _nextFireTime = Time.time + cooldown;
         ammoInClip--;
-        Instantiate(ammunition, transform.position, transform.rotation);
+        GameObject tempObj = (GameObject)Instantiate(ammunition, transform.position, transform.rotation);
+        tempObj.transform.forward = transform.forward;
+        tempObj.GetComponent<Ammunition>().bulletForce = bulletSpeed;
+        //var rotation = Quternion.FromToRotation(bulletPrefab.forward, Spawn.position.forward); var instanceBullet = Instantiate(bulletPrefab, Spawn.position, rotation);
     }
 }

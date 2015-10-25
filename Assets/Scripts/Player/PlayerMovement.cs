@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     float _mouseSensitivity;
     float _movementSpeed = 300.0f;
     float _rotationSpeed = 10.0f;
-    Vector2 _velocity = new Vector2(0,0);
     Rigidbody _rigidbody;
 
     // Use this for initialization
