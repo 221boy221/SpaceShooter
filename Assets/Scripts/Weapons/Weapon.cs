@@ -71,7 +71,7 @@ public class Weapon : MonoBehaviour {
         _nextFireTime = Time.time + cooldown;
         ammoInClip--;
         GameObject tempObj = (GameObject)Instantiate(ammunition, transform.position, transform.rotation);
-        tempObj.transform.forward = transform.forward;
+        tempObj.transform.rotation = transform.parent.rotation;
         tempObj.GetComponent<Ammunition>().bulletForce = bulletSpeed;
         //var rotation = Quternion.FromToRotation(bulletPrefab.forward, Spawn.position.forward); var instanceBullet = Instantiate(bulletPrefab, Spawn.position, rotation);
     }

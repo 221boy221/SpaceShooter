@@ -5,7 +5,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float _mouseSensitivity;
+    float _mouseSensitivity = 1.0f;
     float _movementSpeed = 300.0f;
     float _rotationSpeed = 10.0f;
     Rigidbody _rigidbody;
