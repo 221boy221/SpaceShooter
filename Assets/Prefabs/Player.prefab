@@ -80,12 +80,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 485380}
-  - 114: {fileID: 11417112}
   - 82: {fileID: 8226866}
   - 108: {fileID: 10855356}
   - 199: {fileID: 19957276}
   - 120: {fileID: 12067560}
   - 198: {fileID: 19892324}
+  - 114: {fileID: 11417112}
+  - 114: {fileID: 11412106}
+  - 114: {fileID: 11429814}
   m_Layer: 0
   m_Name: Shot Spawn
   m_TagString: Untagged
@@ -366,11 +368,11 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157448}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bf75b984df8a84987bcf3a8bf6e2862d, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -546,6 +548,18 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11412106
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66177c96bf356064a8f4c9e0305d8200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootAudioClip: {fileID: 8300000, guid: bf75b984df8a84987bcf3a8bf6e2862d, type: 3}
 --- !u!114 &11417112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -557,7 +571,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac92290ad55695438dabbb90c18b8d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootAudioClip: {fileID: 8300000, guid: bf75b984df8a84987bcf3a8bf6e2862d, type: 3}
   ammunition: {fileID: 137088, guid: a095ac4c7849dd04fbfa9a40f37117d9, type: 2}
+--- !u!114 &11429814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743df8a3891357d4594c923f1e0ea4b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapons:
+  - {fileID: 11417112}
+  - {fileID: 11412106}
 --- !u!114 &11486282
 MonoBehaviour:
   m_ObjectHideFlags: 1

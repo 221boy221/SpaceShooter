@@ -8,14 +8,14 @@ public class Turret : Weapon {
     void Start() {
         ammoClipMax = 50;
         ammoMax     = 500;
-        damage      = 10.0f;
-        cooldown    = 0.1f;
+        damage      = 5.0f;
+        cooldown    = 0.2f;
         reloadTime  = 5.0f;
-        bulletSpeed = 25.0f;
         range       = 100.0f;
 
         ammoInClip = ammoClipMax;
         ammoLeft = ammoMax;
+        gunAudio.clip = shootAudioClip;
     }
 
     public override void Shoot() {

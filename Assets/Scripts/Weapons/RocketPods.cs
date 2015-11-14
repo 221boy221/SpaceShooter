@@ -4,7 +4,10 @@ using System.Collections;
 // Boy Voesten
 
 public class RocketPods : Weapon {
-    
+
+    [SerializeField]
+    GameObject ammunition;
+
 	void Start() {
 	    ammoClipMax = 10;
         ammoMax     = 50;
@@ -16,6 +19,7 @@ public class RocketPods : Weapon {
 
         ammoInClip = ammoClipMax;
         ammoLeft = ammoMax;
+        gunAudio.clip = shootAudioClip;
 	}
 
     public override void Shoot() {

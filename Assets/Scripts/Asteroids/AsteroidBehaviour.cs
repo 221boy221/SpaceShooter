@@ -5,11 +5,11 @@ using System.Collections;
 
 public class AsteroidBehaviour : MonoBehaviour {
 
-    [SerializeField] private float _startHealth;
     [SerializeField] private bool _hasClusters = false;
     [SerializeField] private float _forceToAdd = 2.0f;
-    [SerializeField] private AudioSource _asteroidAudio;
     [SerializeField] private AudioClip _deadAudio;
+    private float _startHealth = 50f;
+    private AudioSource _asteroidAudio;
     private float _health;
     private ParticleSystem _hitParticles;
     private Rigidbody _rbody;
@@ -17,6 +17,7 @@ public class AsteroidBehaviour : MonoBehaviour {
     void Awake() {
         _asteroidAudio = GetComponent<AudioSource>();
         _hitParticles = GetComponentInChildren<ParticleSystem>();
+        _startHealth = _startHealth * gameObject.transform.localScale.x;
         _health = _startHealth;
     }
 
@@ -36,7 +37,7 @@ public class AsteroidBehaviour : MonoBehaviour {
         // Take damage
         _asteroidAudio.Play();
 
-        Debug.Log("Taking " + dmg + " damage");
+        Debug.Log("HP: " + _health + " | Taking " + dmg + " damage");
 
         if (_health - dmg <= 0) {
             Explode();

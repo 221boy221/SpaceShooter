@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour {
         _rigidbody = GetComponent<Rigidbody>();
         _mouseSensitivity = GameObject.FindGameObjectWithTag(TagList.Settings).GetComponent<Settings>().mouseSens;
 
-        Screen.lockCursor = true;
+        //Screen.lockCursor = true;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

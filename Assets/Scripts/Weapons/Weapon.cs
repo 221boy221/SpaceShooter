@@ -8,8 +8,6 @@ using System.Collections;
 [RequireComponent(typeof(LineRenderer))]
 public class Weapon : MonoBehaviour {
     
-    [SerializeField]
-    protected GameObject ammunition;
     protected int ammoClipMax;
     protected int ammoMax;
     protected int ammoInClip;
@@ -24,11 +22,11 @@ public class Weapon : MonoBehaviour {
     protected RaycastHit rayHit;
     protected ParticleSystem gunParticles;
     protected LineRenderer gunLine;
-    protected AudioSource gunAudio;
+    [SerializeField] protected AudioClip shootAudioClip;
     protected Light gunLight;
-
+    protected AudioSource gunAudio;
     private float _nextFireTime;
-    private float _fxTime = 0.2f;
+    private float _fxTime = 0.15f;
     private bool _reloading;
 
     void Awake() {
@@ -97,7 +95,7 @@ public class Weapon : MonoBehaviour {
         ammoInClip--;
 
         Invoke("DisableFX", _fxTime);
-        
+        gunAudio.pitch = Random.Range(0.9f, 1.1f);
         gunAudio.Play();
         gunLight.enabled = true;
         gunParticles.Stop();
