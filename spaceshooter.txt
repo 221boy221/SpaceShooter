@@ -1,23 +1,37 @@
-- PlayerController
+- Player
 	- Camera Mouse track
+	- Cursor lock
 	- Movement
 		- Up/Down
 		- Forward/Backward
 		- Right/Left
 		- Speed-up
 		- Brake
-	- Rotation
-	- Cursor lock
-	- Acceleration
-	
+		- Acceleration
+		- Rotation
+	- Movement Polish
+		
 - Shooting
-	- Bullets
+	- Reload
+	- Audio
+	- Spawn bullet
+	
+- Weapons
+	- Weapon Base
+		- Crosshair
+		- Stats
+	- Rocketpods
+	- Missilepods (Lock-On)
+	- Turret
+	
+- Ammo
+	- Bullet Base
 		- Movement
 		- On hit
 		- Particles
-	- Reload
-	- Ammo
-	- Audio
+	- Rocket
+	- Missile
+	- Bullet
 	
 - Enemies
 	- Spawn system
@@ -26,7 +40,7 @@
 	- Bounce
 	- Split / multiply
 	- Collision
-	- Explosion
+	- Explosion FX
 	
 - Game Manager	
 	- Wave system
@@ -39,3 +53,4 @@
 	- Pause
 	- Game Over
 	- Restart
+	- Options

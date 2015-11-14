@@ -9,9 +9,11 @@ public class AsteroidCluster : MonoBehaviour {
 
     // Split the object in two smaller, slower objects.
     public void Cluster() {
-        foreach (GameObject cluster in _clusters) {
-            Instantiate(cluster, transform.position, transform.rotation);
-            cluster.transform.localScale *= 0.5f;
+        
+
+        for (int i = 0; i < _clusters.Length; i++) {
+            GameObject cluster = (GameObject)Instantiate(_clusters[i], transform.position, transform.rotation);
+            cluster.transform.localScale = this.gameObject.transform.localScale / 2.0f;
         }
     }
 }

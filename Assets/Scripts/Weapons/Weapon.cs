@@ -4,11 +4,12 @@ using System.Collections;
 // Boy Voesten
 
 // Weapon base class
+[RequireComponent(typeof(AudioSource), typeof(Light), typeof(ParticleSystem))]
+[RequireComponent(typeof(LineRenderer))]
 public class Weapon : MonoBehaviour {
     
     [SerializeField]
-    private GameObject ammunition;
-
+    protected GameObject ammunition;
     protected int ammoClipMax;
     protected int ammoMax;
     protected int ammoInClip;
@@ -17,10 +18,26 @@ public class Weapon : MonoBehaviour {
     protected float cooldown;
     protected float reloadTime;
     protected float bulletSpeed;
-    
+    protected float range;
+    protected int shootableMask;
+    protected Ray ray;
+    protected RaycastHit rayHit;
+    protected ParticleSystem gunParticles;
+    protected LineRenderer gunLine;
+    protected AudioSource gunAudio;
+    protected Light gunLight;
+
     private float _nextFireTime;
+    private float _fxTime = 0.2f;
     private bool _reloading;
-    
+
+    void Awake() {
+        shootableMask = LayerMask.GetMask("Shootable");
+        gunParticles = GetComponent<ParticleSystem>();
+        gunLine = GetComponent<LineRenderer>();
+        gunAudio = GetComponent<AudioSource>();
+        gunLight = GetComponent<Light>();
+    }
 
 	void Update () {
         Inputs();
@@ -66,13 +83,25 @@ public class Weapon : MonoBehaviour {
         Debug.Log("Done");
     }
 
-    void Shoot() {
-        Debug.Log("Shoot");
+   
+
+    void DisableFX() {
+        gunLine.enabled = false;
+        gunLight.enabled = false;
+    }
+
+    public virtual void Shoot() {
+        Debug.Log("shoot");
+
         _nextFireTime = Time.time + cooldown;
         ammoInClip--;
-        GameObject tempObj = (GameObject)Instantiate(ammunition, transform.position, transform.rotation);
-        tempObj.transform.rotation = transform.parent.rotation;
-        tempObj.GetComponent<Ammunition>().bulletForce = bulletSpeed;
-        //var rotation = Quternion.FromToRotation(bulletPrefab.forward, Spawn.position.forward); var instanceBullet = Instantiate(bulletPrefab, Spawn.position, rotation);
+
+        Invoke("DisableFX", _fxTime);
+        
+        gunAudio.Play();
+        gunLight.enabled = true;
+        gunParticles.Stop();
+        gunParticles.Play();
     }
+
 }
