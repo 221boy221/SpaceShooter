@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hasClusters: 0
-  _forceToAdd: 2
-  _deadAudio: {fileID: 0}
+  _forceToAdd: 3
+  _deadAudio: {fileID: 8300000, guid: a019ae3af8e864616b85773c509f5285, type: 3}
 --- !u!135 &13520406
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1317,6 +1317,14 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _forceToAdd
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _deadAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: a019ae3af8e864616b85773c509f5285, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 168880}

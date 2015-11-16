@@ -34,7 +34,9 @@ public class WeaponSwitching : MonoBehaviour {
         for (int i = 0; i < nrWeapons; i++) {
             if (i == weapon) {
                 _weapons[i].enabled = true;
+                //_weapons[i].GetComponent<Weapon>().
                 // TODO: Get component to get data for UI
+                // TODO: Fix weapons using same audio clip
             } else {
                 _weapons[i].enabled = false;
             }

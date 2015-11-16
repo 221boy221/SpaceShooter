@@ -22,9 +22,12 @@ public class Weapon : MonoBehaviour {
     protected RaycastHit rayHit;
     protected ParticleSystem gunParticles;
     protected LineRenderer gunLine;
-    [SerializeField] protected AudioClip shootAudioClip;
     protected Light gunLight;
+    [SerializeField]
+    protected AudioClip shootAudioClip;
     protected AudioSource gunAudio;
+    protected float pitchMin;
+    protected float pitchMax;
     private float _nextFireTime;
     private float _fxTime = 0.05f;
     private bool _reloading;
@@ -95,7 +98,7 @@ public class Weapon : MonoBehaviour {
         ammoInClip--;
 
         Invoke("DisableFX", _fxTime);
-        gunAudio.pitch = Random.Range(0.9f, 1.1f);
+        gunAudio.pitch = Random.Range(pitchMin, pitchMax);
         gunAudio.Play();
         gunLight.enabled = true;
         gunParticles.Stop();

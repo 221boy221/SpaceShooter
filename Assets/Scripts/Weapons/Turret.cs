@@ -9,9 +9,11 @@ public class Turret : Weapon {
         ammoClipMax = 50;
         ammoMax     = 500;
         damage      = 5.0f;
-        cooldown    = 0.2f;
+        cooldown    = 0.15f;
         reloadTime  = 5.0f;
         range       = 100.0f;
+        pitchMin    = 0.40f;
+        pitchMax    = 0.20f;
 
         ammoInClip = ammoClipMax;
         ammoLeft = ammoMax;
