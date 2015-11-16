@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour {
     protected Light gunLight;
     protected AudioSource gunAudio;
     private float _nextFireTime;
-    private float _fxTime = 0.15f;
+    private float _fxTime = 0.05f;
     private bool _reloading;
 
     void Awake() {
