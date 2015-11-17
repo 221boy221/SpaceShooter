@@ -21,8 +21,6 @@ public class RocketPods : Weapon {
 
         ammoInClip = ammoClipMax;
         ammoLeft = ammoMax;
-
-        Debug.Log("Rocket: " + shootAudioClip.name);
     }
 
     public override void Shoot() {

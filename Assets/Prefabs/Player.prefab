@@ -146,6 +146,7 @@ GameObject:
   - 54: {fileID: 5460844}
   - 64: {fileID: 6411314}
   - 114: {fileID: 11486282}
+  - 114: {fileID: 11404386}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -377,7 +378,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175988}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 74b67a18216c72448b0e9450bd607e57, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -615,6 +616,17 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11404386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d76049b31aa0664f88c10ff6825eaf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11412106
 MonoBehaviour:
   m_ObjectHideFlags: 1

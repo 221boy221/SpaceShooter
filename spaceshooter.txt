@@ -10,6 +10,9 @@
 		- Acceleration
 		- Rotation
 	- Movement Polish
+	- Health
+	- Death
+	- Score
 		
 - Shooting
 	- Reload

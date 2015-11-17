@@ -103,7 +103,6 @@ public class Weapon : MonoBehaviour {
     public virtual void SwitchAudio() {
         Debug.Log("_gunAudio.clip = " + shootAudioClip.name);
         _gunAudio.clip = shootAudioClip;
-        
     }
 
 }

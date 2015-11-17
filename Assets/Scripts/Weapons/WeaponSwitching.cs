@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+// Boy Voesten
+
 public class WeaponSwitching : MonoBehaviour {
 
     [SerializeField]
@@ -27,10 +29,8 @@ public class WeaponSwitching : MonoBehaviour {
         }
     }
 
-    // Set the selected weapon to active(true) and others to active(false)
+    // Switch weapon for another
     void SwitchWeapon(int weapon) {
-        Debug.Log("Switch weapon: " + weapon);
-
         // Disable current weapon
         if (currentWeapon >= 0 && currentWeapon < nrWeapons) {
             _weapons[currentWeapon].enabled = false;
