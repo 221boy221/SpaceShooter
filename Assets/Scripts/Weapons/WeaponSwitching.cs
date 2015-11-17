@@ -10,7 +10,7 @@ public class WeaponSwitching : MonoBehaviour {
 
     void Start() {
         nrWeapons = _weapons.Length;
-        SwitchWeapon(currentWeapon); // Give player the default gun to start with
+        SwitchWeapon(0); // Give player the default gun to start with
     }
 
     void Update() {
@@ -20,10 +20,9 @@ public class WeaponSwitching : MonoBehaviour {
     void Inputs() {
         for (int i = 0; i <= nrWeapons; i++) {
             // Keyboard number pressed
-            if (Input.GetKeyDown("" + i)) {
-                Debug.Log("Input: " + i);
-                currentWeapon = i - 1;
-                SwitchWeapon(currentWeapon);
+            if (Input.GetKeyDown((i+1).ToString())) {
+                Debug.Log("Input: " + (i+1) + " | Weapon NR: " + i);
+                SwitchWeapon(i);
             }
         }
     }
@@ -31,16 +30,18 @@ public class WeaponSwitching : MonoBehaviour {
     // Set the selected weapon to active(true) and others to active(false)
     void SwitchWeapon(int weapon) {
         Debug.Log("Switch weapon: " + weapon);
-        for (int i = 0; i < nrWeapons; i++) {
-            if (i == weapon) {
-                _weapons[i].enabled = true;
-                //_weapons[i].GetComponent<Weapon>().
-                // TODO: Get component to get data for UI
-                // TODO: Fix weapons using same audio clip
-            } else {
-                _weapons[i].enabled = false;
-            }
-            // TODO: Update the UI (ammo count etc) when switching from weapon
+
+        // Disable current weapon
+        if (currentWeapon >= 0 && currentWeapon < nrWeapons) {
+            _weapons[currentWeapon].enabled = false;
         }
+
+        // Enable new weapon
+        if (weapon >= 0 && weapon < nrWeapons) {
+            _weapons[weapon].enabled = true;
+            _weapons[weapon].SwitchAudio();
+            currentWeapon = weapon;
+        }
+        // TODO: Update the UI (ammo count etc) when switching from weapon
     }
 }

@@ -23,20 +23,19 @@ public class Weapon : MonoBehaviour {
     protected ParticleSystem gunParticles;
     protected LineRenderer gunLine;
     protected Light gunLight;
-    [SerializeField]
-    protected AudioClip shootAudioClip;
-    protected AudioSource gunAudio;
+    [SerializeField] protected AudioClip shootAudioClip;
     protected float pitchMin;
     protected float pitchMax;
     private float _nextFireTime;
     private float _fxTime = 0.05f;
     private bool _reloading;
+    private AudioSource _gunAudio;
 
     void Awake() {
         shootableMask = LayerMask.GetMask("Shootable");
         gunParticles = GetComponent<ParticleSystem>();
         gunLine = GetComponent<LineRenderer>();
-        gunAudio = GetComponent<AudioSource>();
+        _gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
     }
 
@@ -81,28 +80,30 @@ public class Weapon : MonoBehaviour {
             ammoInClip = ammoClipMax;
         }
         _reloading = false;
-        Debug.Log("Done");
+        Debug.Log("Done Reloading");
     }
-
-   
-
+    
     void DisableFX() {
         gunLine.enabled = false;
         gunLight.enabled = false;
     }
 
     public virtual void Shoot() {
-        Debug.Log("shoot");
-
         _nextFireTime = Time.time + cooldown;
         ammoInClip--;
 
         Invoke("DisableFX", _fxTime);
-        gunAudio.pitch = Random.Range(pitchMin, pitchMax);
-        gunAudio.Play();
+        _gunAudio.pitch = Random.Range(pitchMin, pitchMax);
+        _gunAudio.Play();
         gunLight.enabled = true;
         gunParticles.Stop();
         gunParticles.Play();
+    }
+
+    public virtual void SwitchAudio() {
+        Debug.Log("_gunAudio.clip = " + shootAudioClip.name);
+        _gunAudio.clip = shootAudioClip;
+        
     }
 
 }

@@ -12,12 +12,11 @@ public class Turret : Weapon {
         cooldown    = 0.15f;
         reloadTime  = 5.0f;
         range       = 100.0f;
-        pitchMin    = 0.40f;
-        pitchMax    = 0.20f;
+        pitchMin    = 1.40f;
+        pitchMax    = 1.50f;
 
         ammoInClip = ammoClipMax;
         ammoLeft = ammoMax;
-        gunAudio.clip = shootAudioClip;
     }
 
     public override void Shoot() {
