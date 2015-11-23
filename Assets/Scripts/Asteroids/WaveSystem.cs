@@ -4,24 +4,25 @@ using System.Collections;
 
 // Boy Voesten
 
-public class Spawner : MonoBehaviour {
+public class WaveSystem : MonoBehaviour {
 
-    
-    public Vector3 spawnValues;
-    public Text waveCountText;
-    public Text waveTimeText;
-
-    private GameObject[] _asteroids = new GameObject[0];
+    [SerializeField] private Text _waveCountText;
+    [SerializeField] private Text _waveTimeText;
+    //[SerializeField] private GameObject[] _asteroids = new GameObject[0];
+    private Vector3 _randomLocation;
+    private int _spawnRadius = 5;
     private float _spawnTimer = 0.0f;
     private float _spawnDelay = 2.0f;
-    private float _waveWait = 20.0f;
+    private float _waveWait = 5.0f;
     private bool _spawnWave = false;
-    private int _maxAsteroids = 10;
+    private int _maxAsteroids = 3;
     private int _waveCounter = 0;
     private int _asteroidCount;
-
+    private AsteroidFactory _asteroidFactory;
+    
     void Awake() {
-        //
+        _randomLocation = Random.insideUnitSphere * _spawnRadius;
+        _asteroidFactory = GetComponentInChildren<AsteroidFactory>();
     }
 
     void Update() {
@@ -32,7 +33,7 @@ public class Spawner : MonoBehaviour {
     // Wave system
     void Waves() {
         _waveWait -= Time.deltaTime;
-        waveTimeText.text = "Next wave in: " + Mathf.RoundToInt(_waveWait);
+        _waveTimeText.text = "Next wave in: " + Mathf.RoundToInt(_waveWait);
 
         if (_waveWait <= 0) {
             // Wave Start (enable the enemies to spawn)
@@ -47,7 +48,7 @@ public class Spawner : MonoBehaviour {
             }
             // Set the wave text to the corresponding wave
             _waveCounter++;
-            waveCountText.text = "Wave: " + _waveCounter;
+            _waveCountText.text = "Wave: " + _waveCounter;
         }
     }
 
@@ -56,8 +57,8 @@ public class Spawner : MonoBehaviour {
             _spawnTimer += Time.deltaTime;
             if (_spawnTimer >= _spawnDelay) {
                 _spawnTimer = 0.0f;
-                _asteroidCount++;
                 SpawnAsteroid();
+                _asteroidCount++;
             }
         }
         if (_asteroidCount >= (_maxAsteroids * _waveCounter) / 2) {
@@ -67,16 +68,22 @@ public class Spawner : MonoBehaviour {
     }
 
     void SpawnAsteroid() {
-        Vector3 spawnPostition = new Vector3(spawnValues.x, spawnValues.y, spawnValues.z);
-        Quaternion spawnRotation = Quaternion.identity;
+        Vector3 spawnPos = new Vector3(_randomLocation.x, _randomLocation.y, _randomLocation.z);
+        Quaternion spawnRot = Quaternion.identity;
         GameObject tempObj;
 
         // Do fancy stuff on certain waves
-        if (_waveCounter == 10) {
-            // 
+        if (_waveCounter > 10) {
+            // Spawn Normal ones only
+            //tempObj = (GameObject)Instantiate(_asteroids[]);
+            //Instantiate(_asteroidFactory(_asteroidFactory.SMALL));
+            _asteroidFactory.CreateAsteroid(_asteroidFactory.AsteroidType(2), spawnPos, spawnRot);
         } else {
-            tempObj = (GameObject)Instantiate(_asteroids[Random.Range(0, _asteroids.Length - 1)], spawnPostition, spawnRotation);
-            Debug.Log("Spawn " + tempObj.name);
+            //tempObj = (GameObject)Instantiate(_asteroids[Random.Range(0, _asteroids.Length - 1)], spawnPos, spawnRot);
+            //Debug.Log("Spawn " + tempObj.name);
+
+            _asteroidFactory.CreateAsteroid(_asteroidFactory.AsteroidType(1), spawnPos, spawnRot);
+
         }
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - 114: {fileID: 11432498}
   - 82: {fileID: 8286834}
   m_Layer: 8
-  m_Name: asteroid_normal_03
+  m_Name: asteroid_medium_03
   m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
