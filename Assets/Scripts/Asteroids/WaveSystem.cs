@@ -13,10 +13,10 @@ public class WaveSystem : MonoBehaviour {
     private int _spawnRadius = 5;
     private float _spawnTimer = 0.0f;
     private float _spawnDelay = 2.0f;
-    private float _waveTimer = 20.0f;
-    private float _waveDelay = 60.0f;
+    private float _waveTimer = 5.0f; // Tweak this
+    private float _waveDelay = 45.0f;
     private bool _spawnWave = false;
-    private int _maxAsteroids = 3;
+    private int _maxAsteroids = 5;
     private int _waveCounter = 0;
     private int _asteroidCount;
     private AsteroidFactory _asteroidFactory;
@@ -48,8 +48,8 @@ public class WaveSystem : MonoBehaviour {
             _waveCountText.text = "Wave: " + _waveCounter;
             
             // Every 10th wave
-            if (_waveCounter % 10 == 0) {
-                Debug.Log("10th");
+            if (_waveCounter % 5 == 0) {
+                Debug.Log("5th");
                 _difficulty++;
             }
             // Decrease asteroid SpawnDelay
