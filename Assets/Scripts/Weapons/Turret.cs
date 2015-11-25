@@ -7,7 +7,7 @@ public class Turret : Weapon {
 
     void Start() {
         ammoClipMax = 50;
-        ammoMax     = 500;
+        ammoMax     = 5000;
         damage      = 5.0f;
         cooldown    = 0.15f;
         reloadTime  = 5.0f;

@@ -9,8 +9,7 @@ public class WaveSystem : MonoBehaviour {
     [SerializeField] private Text _waveCountText;
     [SerializeField] private Text _waveTimeText;
     //[SerializeField] private GameObject[] _asteroids = new GameObject[0];
-    private Vector3 _randomLocation;
-    private int _spawnRadius = 5;
+    private int _spawnRadius = 50;
     private float _spawnTimer = 0.0f;
     private float _spawnDelay = 2.0f;
     private float _waveTimer = 5.0f; // Tweak this
@@ -23,7 +22,6 @@ public class WaveSystem : MonoBehaviour {
     private uint _difficulty;
     
     void Awake() {
-        _randomLocation = Random.insideUnitSphere * _spawnRadius;
         _asteroidFactory = GetComponentInChildren<AsteroidFactory>();
     }
 
@@ -75,7 +73,7 @@ public class WaveSystem : MonoBehaviour {
     }
 
     void SpawnAsteroid() {
-        Vector3 spawnPos = new Vector3(_randomLocation.x, _randomLocation.y, _randomLocation.z);
+        Vector3 spawnPos = Random.insideUnitSphere * _spawnRadius;
         Quaternion spawnRot = Quaternion.identity;
 
         _asteroidFactory.CreateAsteroid(_asteroidFactory.AsteroidType((uint)Random.Range(1, _difficulty)), spawnPos, spawnRot);
